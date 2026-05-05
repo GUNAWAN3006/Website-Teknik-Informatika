@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi 4: Jaringan Saraf Tiruan | Advanced Computer Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo">ADVANCED COMPUTER VISION</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#modules">Modules</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="module-layout">
+            <aside class="sidebar">
+                <h4>Course Modules</h4>
+                <ul class="sidebar-nav">
+                    <li><a href="module-1.html" class="">01. Introduction</a></li>
+                    <li><a href="module-2.html" class="">02. Digital Image</a></li>
+                    <li><a href="module-3.html" class="">03. Filtering</a></li>
+                    <li><a href="module-4.html" class="active">04. ANN Basics</a></li>
+                    <li><a href="module-5.html" class="">05. Advanced ML</a></li>
+                    <li><a href="module-6.html" class="">06. CNN</a></li>
+                    <li><a href="module-7.html" class="">07. Applications</a></li>
+                    <li><a href="module-8.html" class="">08. Frameworks</a></li>
+                </ul>
+            </aside>
+
+            <article class="content-section">
+                <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Materi 4</p>
+                <h2>Jaringan Saraf Tiruan</h2>
+                <div class="module-content docx-content">
+                    <p><strong>Jaringan Saraf Tiruan (JST)</strong></p><p>Jaringan Saraf Tiruan (Artificial Neural Network/ANN) adalah model komputasi yang meniru cara kerja neuron biologis pada otak manusia. JST digunakan untuk memproses informasi melalui unit-unit sederhana (neuron buatan) yang saling terhubung.</p><ol><li><strong>Karakteristik Utama</strong></li></ol><ul><li><strong>Learning</strong>: JST belajar dari data melalui proses pelatihan.</li><li><strong>Generalization</strong>: Mampu memberikan prediksi yang baik pada data baru.</li><li><strong>Fault Tolerance</strong>: Tidak mudah gagal walau sebagian input mengalami noise.</li><li><strong>Komputasi Paralel</strong>: Banyak neuron bekerja secara bersamaan.</li></ul><ol><li><strong>Kelebihan JST dalam Computer Vision</strong></li></ol><p>JST unggul dalam mengenali pola kompleks pada citra, tahan terhadap noise, dan adaptif terhadap variasi data visual.</p><p><strong>3. Struktur Dasar Jaringan Saraf Tiruan</strong></p><p>Struktur JST terdiri dari:</p><ul><li><strong>Input Layer</strong>: Menerima data mentah (misalnya piksel citra).</li><li><strong>Hidden Layer</strong>: Memproses dan mengekstraksi pola/fitur.</li><li><strong>Output Layer</strong>: Menghasilkan prediksi atau kelas hasil.</li></ul><p>Setiap neuron menghitung kombinasi berbobot dari input, menambahkan bias, lalu melewatkannya ke fungsi aktivasi.</p><p><strong>4. Komponen Neuron Buatan</strong></p><ul><li><strong>Input (x)</strong>: Fitur data (contoh: nilai intensitas piksel).</li><li><strong>Bobot (w)</strong>: Parameter yang menunjukkan pentingnya suatu input.</li><li><strong>Bias (b)</strong>: Nilai tambahan untuk menggeser fungsi aktivasi.</li><li><strong>Fungsi Penjumlahan</strong>: Σ(wᵢxᵢ) + b.</li><li><strong>Fungsi Aktivasi</strong>: Membuat model bersifat non-linear.</li><li><strong>Output (y)</strong>: Keluaran neuron.</li></ul><p><strong>5. Fungsi Aktivasi</strong></p><p>Fungsi aktivasi memungkinkan JST mempelajari hubungan non-linear.</p><ul><li><strong>Sigmoid</strong>: Output 0–1, sering untuk probabilitas biner.</li><li><strong>Tanh</strong>: Output -1–1, sering pada hidden layer.</li><li><strong>ReLU</strong>: Efisien dan umum pada CNN.</li><li><strong>Softmax</strong>: Menghasilkan distribusi probabilitas untuk klasifikasi multi-kelas.</li></ul><p><strong>6. Arsitektur JST untuk Computer Vision</strong></p><ul><li><strong>Multilayer Perceptron (MLP)</strong>: Jaringan feedforward sederhana, cocok untuk citra berdimensi rendah.</li><li><strong>Convolutional Neural Network (CNN)</strong>: Dirancang khusus untuk citra, memanfaatkan konvolusi dan pooling.</li><li><strong>Recurrent Neural Network (RNN)</strong>: Digunakan untuk data sekuensial seperti video.</li></ul><p><strong>7. Convolutional Neural Network (CNN)</strong></p><p>CNN terdiri dari beberapa lapisan utama:</p><ul><li><strong>Input Layer</strong>: Tensor citra (H×W×C).</li><li><strong>Convolution Layer</strong>: Ekstraksi fitur lokal.</li><li><strong>Pooling Layer</strong>: Mengurangi dimensi dan parameter.</li><li><strong>Fully Connected Layer</strong>: Klasifikasi akhir.</li></ul><p>CNN efektif karena mampu menangkap struktur spasial pada citra.</p><p><strong>8. Proses Pembelajaran dan Backpropagation</strong></p><p>Pembelajaran JST dilakukan secara iteratif:</p><ol><li><strong>Forward Propagation</strong>: Data mengalir dari input ke output.</li><li><strong>Perhitungan Error</strong>: Selisih prediksi dan target dihitung dengan fungsi loss.</li><li><strong>Backward Propagation</strong>: Gradien error dihitung mundur.</li><li><strong>Pembaruan Bobot</strong>: Bobot diperbarui menggunakan optimizer.</li></ol><p><strong>9. Fungsi Loss dan Optimizer</strong></p><p><strong>Fungsi Loss</strong></p><ul><li><strong>MSE</strong>: Regresi.</li><li><strong>Binary Cross-Entropy</strong>: Klasifikasi biner.</li><li><strong>Categorical Cross-Entropy</strong>: Klasifikasi multi-kelas.</li></ul><p><strong>Optimizer</strong></p><ul><li><strong>SGD</strong>: Sederhana namun lambat.</li><li><strong>Adam</strong>: Adaptif dan cepat.</li><li><strong>RMSprop &amp; Adagrad</strong>: Untuk kasus khusus.</li></ul><p><strong>10. Regularisasi dan Overfitting</strong></p><p>Teknik pencegahan overfitting:</p><ul><li><strong>Dropout</strong>: Menonaktifkan neuron secara acak.</li><li><strong>Regularisasi L1/L2</strong>: Membatasi kompleksitas bobot.</li><li><strong>Early Stopping</strong>: Menghentikan pelatihan saat validasi memburuk.</li><li><strong>Batch Normalization</strong>: Menstabilkan distribusi aktivasi.</li></ul><p><strong>11. Mengapa JST Efektif untuk Computer Vision?</strong></p><ul><li>Ekstraksi fitur hierarkis.</li><li>Invariansi spasial.</li><li>Generalisasi yang baik.</li><li>Parameter sharing pada CNN.</li></ul><p><strong>12. Dataset Populer untuk Computer Vision</strong></p><ul><li><strong>MNIST</strong>: Digit tulisan tangan.</li><li><strong>CIFAR-10/100</strong>: Citra berwarna objek umum.</li><li><strong>ImageNet</strong>: Dataset skala besar.</li><li><strong>COCO</strong>: Deteksi dan segmentasi objek.</li></ul><p><strong>13. Implementasi JST dengan Python</strong></p><p>Python populer karena ekosistemnya:</p><ul><li><strong>Library utama</strong>: TensorFlow, Keras, PyTorch.</li><li><strong>Pendukung</strong>: NumPy, Pandas, Matplotlib, OpenCV.</li></ul><p><strong>14. Langkah Implementasi JST dengan Keras</strong></p><ol><li>Persiapan data.</li><li>Definisi arsitektur model.</li><li>Kompilasi model.</li><li>Pelatihan model.</li><li>Evaluasi performa.</li><li>Prediksi dan inferensi.</li></ol><p><strong>15. Studi Kasus: Klasifikasi MNIST</strong></p><p>CNN sederhana mampu mencapai akurasi &gt;99%, lebih tinggi dibanding MLP atau metode tradisional. Ini menunjukkan keunggulan CNN untuk data citra.</p><p><strong>16. Tantangan dan Solusi JST</strong></p><ul><li><strong>Overfitting</strong> → Regularisasi dan augmentasi data.</li><li><strong>Komputasi tinggi</strong> → GPU, transfer learning.</li><li><strong>Kebutuhan data besar</strong> → Transfer learning, semi-supervised learning.</li><li><strong>Interpretabilitas</strong> → Grad-CAM, LIME, SHAP.</li></ul>
+                </div>
+                
+                <div style="margin-top: 4rem; display: flex; justify-content: space-between;">
+                    <a href="module-3.html" style="color: var(--primary); text-decoration: none;">&larr; Previous Module</a>
+                    <a href="module-5.html" style="color: var(--primary); text-decoration: none;">Next Module &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center; margin-top: 4rem;">
+        <p style="color: var(--text-dim);">&copy; 2026 Advanced Computer Vision Portal.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

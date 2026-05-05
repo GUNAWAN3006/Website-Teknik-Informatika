@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi 6: Convolutional Neural Network | Advanced Computer Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo">ADVANCED COMPUTER VISION</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#modules">Modules</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="module-layout">
+            <aside class="sidebar">
+                <h4>Course Modules</h4>
+                <ul class="sidebar-nav">
+                    <li><a href="module-1.html" class="">01. Introduction</a></li>
+                    <li><a href="module-2.html" class="">02. Digital Image</a></li>
+                    <li><a href="module-3.html" class="">03. Filtering</a></li>
+                    <li><a href="module-4.html" class="">04. ANN Basics</a></li>
+                    <li><a href="module-5.html" class="">05. Advanced ML</a></li>
+                    <li><a href="module-6.html" class="active">06. CNN</a></li>
+                    <li><a href="module-7.html" class="">07. Applications</a></li>
+                    <li><a href="module-8.html" class="">08. Frameworks</a></li>
+                </ul>
+            </aside>
+
+            <article class="content-section">
+                <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Materi 6</p>
+                <h2>Convolutional Neural Network</h2>
+                <div class="module-content docx-content">
+                    <p><strong>Convolutional Neural Network (CNN)</strong></p><p><strong>1. Pengantar Convolutional Neural Network (CNN)</strong></p><p><strong>Convolutional Neural Network (CNN)</strong> adalah jenis <em>Deep Neural Network</em> yang dirancang khusus untuk memproses data berbentuk grid, terutama <strong>citra digital</strong>. CNN terinspirasi dari cara kerja <strong>visual cortex</strong> pada manusia, di mana neuron merespons area lokal tertentu pada medan visual.</p><p><strong>Mengapa CNN penting dalam Computer Vision?</strong></p><ul><li>Citra memiliki <strong>struktur spasial</strong> (hubungan antar piksel).</li><li>CNN mampu mempelajari pola lokal → global secara bertahap.</li><li>Jauh lebih efisien dibanding neural network biasa untuk citra.</li></ul><p><strong>Keunggulan CNN:</strong></p><ul><li>Ekstraksi fitur otomatis (tidak perlu hand-crafted feature).</li><li><em>Weight sharing</em> → jumlah parameter lebih sedikit.</li><li>Relatif tahan terhadap pergeseran objek (<em>translation invariance</em>).</li></ul><p><strong>Aplikasi utama CNN:</strong></p><ul><li>Klasifikasi citra</li><li>Deteksi objek</li><li>Segmentasi citra</li><li>Pengenalan wajah</li></ul><p><strong>2. Arsitektur Dasar CNN</strong></p><p>CNN bekerja dengan menumpuk beberapa jenis lapisan, dari input hingga output. Alurnya bersifat <strong>hierarkis</strong>.</p><p><strong>a. Input Layer</strong></p><ul><li>Menerima citra sebagai <strong>tensor 3D</strong>:<br /><strong>tinggi × lebar × channel</strong></li><li>Contoh: citra RGB CIFAR‑10 → 32 × 32 × 3</li></ul><p><strong>b. Convolutional Layer</strong></p><ul><li>Melakukan operasi konvolusi dengan <strong>filter/kernel</strong></li><li>Menghasilkan <strong>feature map</strong></li><li>Lapisan awal → fitur sederhana (tepi, sudut)</li><li>Lapisan dalam → fitur kompleks (tekstur, objek)</li></ul><p><strong>c. Pooling Layer</strong></p><ul><li>Mereduksi dimensi spasial</li><li>Mengurangi komputasi</li><li>Membuat model lebih stabil terhadap translasi</li></ul><p><strong>d. Fully Connected Layer</strong></p><ul><li>Menggabungkan seluruh fitur</li><li>Digunakan untuk proses <strong>klasifikasi akhir</strong></li></ul><p><strong>3. Convolution Layer: Konsep Inti</strong></p><p><strong>Convolution layer</strong> menggeser kernel di atas citra input dan menghitung operasi perkalian + penjumlahan.</p><p><strong>Inti proses:</strong></p><ol><li>Kernel mengambil area kecil citra</li><li>Nilai dikalikan bobot</li><li>Dijumlahkan → satu nilai feature map</li><li>Kernel digeser (stride)</li></ol><p><strong>Makna Feature Map</strong></p><ul><li>Setiap feature map merepresentasikan satu jenis pola</li><li>Banyak filter → banyak sudut pandang fitur</li></ul><p><strong>4. Parameter Penting pada Convolution Layer</strong></p><p><strong>a. Filter Size (Kernel)</strong></p><ul><li>Umum: 3×3, 5×5</li><li>Kernel kecil berlapis lebih efektif daripada kernel besar</li></ul><p><strong>b. Stride</strong></p><ul><li>Jumlah pergeseran kernel</li><li>Stride besar → output lebih kecil → informasi bisa hilang</li></ul><p><strong>c. Padding</strong></p><ul><li><strong>Valid</strong>: tanpa padding → ukuran mengecil</li><li><strong>Same</strong>: padding → ukuran dipertahankan</li></ul><p><strong>d. Jumlah Filter</strong></p><ul><li>Menentukan banyaknya feature map</li><li>Lebih banyak filter → lebih kaya fitur, tapi lebih berat komputasi</li></ul><p><strong>5. Fungsi Aktivasi dalam CNN</strong></p><p>Fungsi aktivasi menambahkan <strong>non-linearitas</strong>, memungkinkan CNN mempelajari pola kompleks.</p><p><strong>ReLU (Rectified Linear Unit)</strong></p><p>f(x) = max(0, x)</p><p>✅ Cepat, sederhana<br />⚠️ Risiko <em>dying ReLU</em></p><p><strong>Leaky ReLU</strong></p><p>f(x) = max(αx, x)</p><p>✅ Mengatasi dying ReLU</p><p><strong>Sigmoid &amp; Tanh</strong></p><ul><li>Jarang digunakan di hidden layer</li><li>Masih dipakai pada output klasifikasi biner</li></ul><p><strong>6. Pooling Layer: Pengurangan Dimensi</strong></p><p><strong>a. Max Pooling</strong></p><ul><li>Mengambil nilai maksimum</li><li>Menjaga fitur dominan</li><li>Paling sering digunakan</li></ul><p><strong>b. Average Pooling</strong></p><ul><li>Mengambil nilai rata-rata</li><li>Menjaga konteks global</li></ul><p><strong>Dampak Pooling:</strong> ✅ Mengurangi overfitting<br />✅ Mempercepat pelatihan<br />❌ Kehilangan detail spasial</p><p><strong>7. Fully Connected Layer &amp; Output</strong></p><p><strong>Flattening</strong></p><ul><li>Feature map 3D → vektor 1D<br />Contoh: 7×7×64 = 3136 elemen</li></ul><p><strong>Fully Connected</strong></p><ul><li>Menggabungkan seluruh fitur</li><li>Biasanya menggunakan ReLU</li></ul><p><strong>Output Layer</strong></p><ul><li>Jumlah neuron = jumlah kelas</li><li>Softmax → probabilitas tiap kelas</li></ul><p><strong>8. Teknik Regularisasi CNN</strong></p><p><strong>Dropout</strong></p><ul><li>Mematikan neuron secara acak</li><li>Mencegah ketergantungan berlebih</li></ul><p><strong>Batch Normalization</strong></p><ul><li>Menstabilkan distribusi aktivasi</li><li>Mempercepat konvergensi</li></ul><p><strong>Data Augmentation</strong></p><ul><li>Rotasi, flipping, scaling</li><li>Menambah variasi data tanpa data baru</li></ul><p><strong>9. Arsitektur CNN Populer</strong></p><ul><li><strong>LeNet</strong> → cikal bakal CNN</li><li><strong>AlexNet</strong> → revolusi deep learning (ILSVRC 2012)</li><li><strong>VGG</strong> → arsitektur dalam dan seragam</li><li><strong>ResNet</strong> → <em>skip connection</em>, sangat dalam</li></ul><p><strong>10. Transfer Learning</strong></p><p><strong>Keuntungan:</strong></p><ul><li>Hemat data</li><li>Cepat konvergen</li><li>Performa tinggi</li></ul><p><strong>Pendekatan:</strong></p><ol><li>Feature extraction</li><li>Fine-tuning</li><li>Full training</li></ol><p><strong>11. Studi Kasus: CIFAR‑10</strong></p><ul><li>60.000 citra (32×32, RGB)</li><li>10 kelas objek</li></ul><p><strong>Hasil utama:</strong></p><ul><li>CNN sederhana → akurasi 75–80%</li><li>Data augmentation → +3–5%</li><li>Layer konvolusi tambahan → signifikan</li></ul><p><strong>12. Tantangan CNN</strong></p><ul><li>Membutuhkan data besar</li><li>Komputasi tinggi (GPU)</li><li>Sensitif hyperparameter</li><li>Interpretabilitas rendah (<em>black box</em>)</li></ul><p><strong>13. Tren Terkini</strong></p><ul><li>Capsule Networks</li><li>EfficientNet</li><li>Vision Transformer (ViT)</li><li>CNN + Attention</li></ul><p><strong>14. Ringkasan Pembelajaran</strong></p><p>✅ CNN adalah fondasi utama computer vision modern<br />✅ Lapisan konvolusi = inti kekuatan CNN<br />✅ Transfer learning penting untuk aplikasi nyata<br />✅ Pemahaman arsitektur lebih penting daripada sekadar menjalankan kode</p>
+                </div>
+                
+                <div style="margin-top: 4rem; display: flex; justify-content: space-between;">
+                    <a href="module-5.html" style="color: var(--primary); text-decoration: none;">&larr; Previous Module</a>
+                    <a href="module-7.html" style="color: var(--primary); text-decoration: none;">Next Module &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center; margin-top: 4rem;">
+        <p style="color: var(--text-dim);">&copy; 2026 Advanced Computer Vision Portal.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

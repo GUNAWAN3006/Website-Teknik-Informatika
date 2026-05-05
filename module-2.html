@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi 2: Konsep Dasar Citra Digital dan Manipulasi dengan Python | Advanced Computer Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo">ADVANCED COMPUTER VISION</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#modules">Modules</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="module-layout">
+            <aside class="sidebar">
+                <h4>Course Modules</h4>
+                <ul class="sidebar-nav">
+                    <li><a href="module-1.html" class="">01. Introduction</a></li>
+                    <li><a href="module-2.html" class="active">02. Digital Image</a></li>
+                    <li><a href="module-3.html" class="">03. Filtering</a></li>
+                    <li><a href="module-4.html" class="">04. ANN Basics</a></li>
+                    <li><a href="module-5.html" class="">05. Advanced ML</a></li>
+                    <li><a href="module-6.html" class="">06. CNN</a></li>
+                    <li><a href="module-7.html" class="">07. Applications</a></li>
+                    <li><a href="module-8.html" class="">08. Frameworks</a></li>
+                </ul>
+            </aside>
+
+            <article class="content-section">
+                <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Materi 2</p>
+                <h2>Konsep Dasar Citra Digital dan Manipulasi dengan Python</h2>
+                <div class="module-content docx-content">
+                    <p><strong>Konsep Dasar Citra Digital dan Manipulasi dengan Python</strong></p><p><strong>1. Konsep Dasar Citra Digital</strong></p><p><strong>1.1 Pengertian Citra Digital</strong></p><p>Citra digital adalah representasi visual dua dimensi dari suatu objek atau pemandangan yang disimpan dalam bentuk data numerik diskrit. Berbeda dengan citra analog (foto film), citra digital dapat diproses, dianalisis, dan dimodifikasi menggunakan komputer.</p><p>Citra digital tersusun dari elemen-elemen kecil yang disebut <strong>piksel (picture element)</strong>. Setiap piksel mewakili informasi intensitas atau warna pada posisi tertentu dalam citra.</p><p><strong>1.2 Definisi Formal Citra Digital</strong></p><p>Secara matematis, citra digital dinyatakan sebagai fungsi:</p><p>f(x, y)</p><p>Keterangan:</p><ul><li><strong>x dan y</strong> menyatakan koordinat spasial (posisi piksel)</li><li><strong>f(x, y)</strong> adalah nilai intensitas atau warna pada posisi tersebut</li></ul><p>Definisi ini penting karena menunjukkan bahwa citra adalah <strong>data numerik</strong>, sehingga dapat dianalisis menggunakan pendekatan matematika dan algoritmik.</p><p><strong>1.3 Interpretasi Matematis</strong></p><p>Citra digital dapat direpresentasikan sebagai <strong>matriks berukuran M × N</strong>:</p><ul><li>M = jumlah baris (tinggi citra)</li><li>N = jumlah kolom (lebar citra)</li></ul><p>Setiap elemen matriks menyimpan nilai intensitas piksel. Representasi ini menjadi dasar pemrosesan citra menggunakan NumPy dan OpenCV karena keduanya bekerja dengan struktur array/matriks.</p><p><strong>1.4 Signifikansi dalam Computer Vision</strong></p><p>Pemahaman konsep dasar citra digital sangat penting karena:</p><ul><li>Semua algoritma computer vision bekerja di atas piksel</li><li>Kesalahan memahami resolusi atau intensitas dapat menyebabkan bias analisis</li><li>Menjadi fondasi bagi topik lanjutan seperti segmentasi, deteksi objek, dan deep learning</li></ul><p><strong>2. Representasi Citra Digital</strong></p><p><strong>2.1 Representasi Matriks</strong></p><p>Pada citra <strong>grayscale</strong>, setiap piksel memiliki satu nilai intensitas (0–255 pada citra 8-bit).</p><p>Pada citra <strong>berwarna (RGB)</strong>, setiap piksel memiliki tiga nilai:</p><ul><li>Kanal Merah (Red)</li><li>Kanal Hijau (Green)</li><li>Kanal Biru (Blue)</li></ul><p>Artinya, citra RGB direpresentasikan sebagai matriks 3 dimensi (tinggi × lebar × kanal).</p><p>Representasi ini menjelaskan mengapa manipulasi citra sering dilakukan per-kanal atau dengan operasi vektor.</p><p><strong>3. Karakteristik Citra Digital</strong></p><p><strong>3.1 Resolusi Citra</strong></p><p><strong>3.1.1 Resolusi Spasial</strong></p><p>Resolusi spasial menunjukkan <strong>kepadatan piksel</strong> dalam citra. Semakin tinggi resolusi spasial, semakin detail informasi yang dapat ditangkap.</p><p>Implikasi:</p><ul><li>Resolusi tinggi → detail tinggi → beban komputasi besar</li><li>Resolusi rendah → efisiensi tinggi → detail berkurang</li></ul><p><strong>3.1.2 Resolusi Piksel</strong></p><p>Resolusi piksel dinyatakan sebagai ukuran lebar × tinggi citra (contoh: 1920×1080).</p><p>Resolusi ini mempengaruhi:</p><ul><li>Ukuran file</li><li>Waktu pemrosesan</li><li>Konsumsi memori</li></ul><p><strong>3.1.3 Resolusi Radiometrik</strong></p><p>Resolusi radiometrik menentukan <strong>jumlah tingkat intensitas atau warna</strong> yang dapat direpresentasikan.</p><p>Contoh:</p><ul><li>8-bit grayscale → 256 tingkat keabuan</li><li>24-bit RGB → 16,7 juta warna</li></ul><p>Semakin tinggi resolusi radiometrik, semakin halus transisi warna, namun ukuran data juga meningkat.</p><p><strong>3.2 Intensitas Piksel</strong></p><p>Intensitas piksel merepresentasikan tingkat kecerahan.</p><ul><li>Nilai rendah → gelap</li><li>Nilai tinggi → terang</li></ul><p>Konsep intensitas penting untuk:</p><ul><li>Deteksi tepi</li><li>Segmentasi</li><li>Analisis pencahayaan</li></ul><p><strong>3.3 Histogram Intensitas</strong></p><p>Histogram menggambarkan distribusi nilai intensitas dalam citra.</p><p>Histogram digunakan untuk:</p><ul><li>Mengevaluasi kualitas pencahayaan</li><li>Menentukan kontras citra</li><li>Dasar teknik enhancement seperti histogram equalization</li></ul><p><strong>3.4 Model Warna</strong></p><p><strong>RGB</strong></p><p>Model warna aditif yang digunakan pada layar digital dan kamera.</p><p><strong>CMYK</strong></p><p>Model subtraktif yang digunakan untuk pencetakan, tidak umum untuk analisis citra.</p><p><strong>HSV</strong></p><p>Memisahkan informasi warna dan intensitas sehingga lebih intuitif untuk segmentasi warna.</p><p><strong>Grayscale</strong></p><p>Menggunakan satu kanal intensitas, efisien untuk banyak algoritma computer vision.</p><p><strong>4. Format File Citra</strong></p><p><strong>4.1 Format Lossless</strong></p><p>Menjaga semua informasi citra tanpa kehilangan kualitas.</p><ul><li>PNG</li><li>TIFF</li><li>BMP</li></ul><p>Digunakan untuk analisis dan pengarsipan.</p><p><strong>4.2 Format Lossy</strong></p><p>Mengurangi ukuran file dengan mengorbankan sebagian detail.</p><ul><li>JPEG</li><li>WebP</li><li>JPEG 2000</li></ul><p>Cocok untuk penyimpanan dan distribusi.</p><p><strong>4.3 Format Khusus Computer Vision</strong></p><p>Digunakan pada aplikasi profesional dan ilmiah.</p><ul><li>RAW → data mentah sensor</li><li>OpenEXR → high dynamic range</li><li>HDF5 → citra multidimensi skala besar</li></ul><p><strong>5. Python untuk Manipulasi Citra</strong></p><p><strong>5.1 Alasan Menggunakan Python</strong></p><p>Python dipilih karena:</p><ul><li>Sintaks sederhana</li><li>Ekosistem pustaka lengkap</li><li>Mudah diintegrasikan dengan machine learning</li></ul><p><strong>5.2 Pustaka Utama</strong></p><p><strong>OpenCV</strong></p><p>Digunakan untuk computer vision real-time dan transformasi citra tingkat lanjut.</p><p><strong>Pillow (PIL)</strong></p><p>Digunakan untuk manipulasi citra dasar dan metadata.</p><p><strong>scikit-image</strong></p><p>Menyediakan algoritma pengolahan citra berbasis penelitian.</p><p><strong>NumPy</strong></p><p>Digunakan untuk representasi dan manipulasi matriks piksel.</p><p><strong>6. Operasi Dasar Manipulasi Citra</strong></p><p><strong>6.1 Membaca dan Menampilkan Citra</strong></p><p>Mahasiswa belajar perbedaan format (BGR vs RGB) dan alur data citra antar pustaka.</p><p><strong>6.2 Metadata Citra</strong></p><p>Metadata berisi informasi teknis pengambilan citra seperti kamera, ISO, dan waktu.</p><p>Digunakan dalam:</p><ul><li>Forensik digital</li><li>Audit data</li><li>Analisis konteks pengambilan citra</li></ul><p><strong>6.3 Manipulasi Piksel</strong></p><p>Mengakses piksel secara langsung memungkinkan:</p><ul><li>Modifikasi lokal</li><li>ROI (Region of Interest)</li><li>Statistik citra</li></ul><p>Ini adalah dasar bagi segmentasi dan feature extraction.</p><p><strong>7. Transformasi Dasar Citra</strong></p><p><strong>7.1 Resizing</strong></p><p>Mengubah ukuran citra menggunakan interpolasi untuk menjaga kualitas.</p><p><strong>7.2 Cropping</strong></p><p>Memotong area penting untuk efisiensi dan fokus analisis.</p><p><strong>7.3 Rotasi</strong></p><p>Transformasi geometris yang memperkenalkan area kosong dan memerlukan penanganan khusus.</p><p><strong>7.4 Kontras dan Kecerahan</strong></p><p>Digunakan untuk meningkatkan kualitas visual dan performa algoritma.</p><p><strong>7.5 Konversi Model Warna</strong></p><p>Disesuaikan dengan kebutuhan aplikasi seperti segmentasi atau deteksi objek.</p><p><strong>8. Analisis Histogram</strong></p><p>Histogram membantu memahami karakteristik pencahayaan dan kontras citra.</p><p><strong>9. Ekstraksi Fitur Dasar</strong></p><p><strong>Deteksi Tepi</strong></p><p>Menangkap perubahan intensitas sebagai batas objek.</p><p><strong>Local Binary Pattern (LBP)</strong></p><p>Digunakan untuk analisis tekstur lokal pada citra.</p><p><strong>10. Studi Kasus: Pengaruh Resolusi</strong></p><p><strong>Analisis</strong></p><p>Resolusi mempengaruhi akurasi dan waktu pemrosesan.</p><p><strong>Implikasi</strong></p><ul><li>Resolusi menengah optimal</li><li>Sistem adaptif lebih efisien</li></ul>
+                </div>
+                
+                <div style="margin-top: 4rem; display: flex; justify-content: space-between;">
+                    <a href="module-1.html" style="color: var(--primary); text-decoration: none;">&larr; Previous Module</a>
+                    <a href="module-3.html" style="color: var(--primary); text-decoration: none;">Next Module &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center; margin-top: 4rem;">
+        <p style="color: var(--text-dim);">&copy; 2026 Advanced Computer Vision Portal.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

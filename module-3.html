@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi 3: Filtering Citra Digital Pemahaman Spasial dan Frekuensi | Advanced Computer Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="index.html" class="logo">ADVANCED COMPUTER VISION</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#modules">Modules</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="module-layout">
+            <aside class="sidebar">
+                <h4>Course Modules</h4>
+                <ul class="sidebar-nav">
+                    <li><a href="module-1.html" class="">01. Introduction</a></li>
+                    <li><a href="module-2.html" class="">02. Digital Image</a></li>
+                    <li><a href="module-3.html" class="active">03. Filtering</a></li>
+                    <li><a href="module-4.html" class="">04. ANN Basics</a></li>
+                    <li><a href="module-5.html" class="">05. Advanced ML</a></li>
+                    <li><a href="module-6.html" class="">06. CNN</a></li>
+                    <li><a href="module-7.html" class="">07. Applications</a></li>
+                    <li><a href="module-8.html" class="">08. Frameworks</a></li>
+                </ul>
+            </aside>
+
+            <article class="content-section">
+                <p style="color: var(--primary); font-weight: 600; margin-bottom: 0.5rem;">Materi 3</p>
+                <h2>Filtering Citra Digital Pemahaman Spasial dan Frekuensi</h2>
+                <div class="module-content docx-content">
+                    <p><strong>Filtering Citra Digital: Pemahaman Spasial dan Frekuensi</strong></p><p><strong>1. Pendahuluan Filtering Citra Digital</strong></p><p>Filtering citra digital adalah teknik dasar dalam <em>image processing</em> yang digunakan untuk <strong>memodifikasi kualitas citra</strong>. Modifikasi ini dapat berupa:</p><ul><li>mengurangi noise,</li><li>menghaluskan citra,</li><li>menonjolkan detail,</li><li>atau menyiapkan citra untuk proses lanjutan seperti segmentasi dan pengenalan objek.</li></ul><p><strong>Definisi Filtering</strong><br />Filtering merupakan proses manipulasi nilai intensitas piksel dengan memanfaatkan nilai piksel itu sendiri serta piksel di sekitarnya menggunakan fungsi matematis tertentu. Artinya, setiap piksel baru dihitung berdasarkan konteks lokal atau karakteristik global citra.</p><p><strong>Tujuan Filtering</strong></p><ul><li>Menghilangkan gangguan (noise)</li><li>Menghaluskan citra (smoothing)</li><li>Mendeteksi tepi (edge detection)</li><li>Meningkatkan kontras dan detail</li><li>Memodifikasi karakteristik visual citra sesuai kebutuhan aplikasi</li></ul><p><strong>Domain Filtering</strong></p><ul><li><strong>Domain spasial</strong>: manipulasi dilakukan langsung pada nilai piksel.</li><li><strong>Domain frekuensi</strong>: manipulasi dilakukan setelah citra ditransformasikan ke domain frekuensi menggunakan Transformasi Fourier.</li></ul><p><strong>2. Konsep Dasar Filtering Spasial</strong></p><p>Filtering spasial bekerja secara <strong>lokal</strong>, yaitu dengan memproses piksel berdasarkan piksel tetangganya.</p><p><strong>Konvolusi</strong><br />Konvolusi adalah operasi matematika inti dalam filtering spasial. Konsepnya adalah:</p><ul><li>sebuah <em>kernel</em> digeser ke seluruh citra,</li><li>nilai piksel di bawah kernel dikalikan dengan bobot kernel,</li><li>hasilnya dijumlahkan untuk menghasilkan piksel baru.</li></ul><p><strong>Kernel / Mask / Filter</strong><br />Kernel adalah matriks kecil (biasanya 3×3, 5×5, atau 7×7) yang berisi bobot. Bentuk dan nilai kernel menentukan efek filter, misalnya menghaluskan atau menajamkan citra.</p><p><strong>Padding</strong><br />Padding digunakan untuk menangani piksel tepi. Tanpa padding, ukuran citra bisa berkurang. Padding umum:</p><ul><li>zero padding (nilai 0),</li><li>replicate (menyalin nilai tepi),</li><li>reflect (mencerminkan nilai tepi).</li></ul><p><strong>3. Konsep Konvolusi Secara Matematis</strong></p><p>Pada operasi konvolusi:</p><ul><li><strong>g(x, y)</strong> adalah hasil filtering,</li><li><strong>f(x, y)</strong> adalah citra asli,</li><li><strong>h(s, t)</strong> adalah kernel,</li><li>ukuran kernel ditentukan oleh parameter tertentu.</li></ul><p><strong>Tahapan Konvolusi</strong></p><ol><li>Pusat kernel ditempatkan di piksel target</li><li>Setiap nilai piksel dikalikan dengan nilai kernel</li><li>Hasil perkalian dijumlahkan</li><li>Proses diulang ke seluruh piksel citra</li></ol><p>Konvolusi memungkinkan citra “diinterpretasi ulang” sesuai tujuan filter.</p><p><strong>4. Jenis-Jenis Filter Spasial</strong></p><p><strong>a. Low-Pass Filter (Smoothing / Blurring)</strong></p><p>Filter ini <strong>melemahkan frekuensi tinggi</strong> (detail dan noise) dan mempertahankan frekuensi rendah.</p><p>Contoh:</p><ul><li><strong>Average filter</strong>: merata-ratakan nilai piksel</li><li><strong>Gaussian filter</strong>: pembobotan mengikuti distribusi Gaussian sehingga hasil lebih alami</li></ul><p>Efek utama:</p><ul><li>citra menjadi lebih halus,</li><li>detail kecil dan noise berkurang.</li></ul><p><strong>b. High-Pass Filter (Sharpening / Edge Detection)</strong></p><p>Filter ini <strong>menekan frekuensi rendah</strong> dan menonjolkan perubahan intensitas.</p><p>Contoh:</p><ul><li>Sobel</li><li>Prewitt</li><li>Laplacian</li></ul><p>Efek utama:</p><ul><li>tepi objek lebih jelas,</li><li>tekstur dan detail meningkat,</li><li>noise juga bisa ikut diperkuat.</li></ul><p><strong>c. Band-Pass Filter</strong></p><p>Melewatkan hanya rentang frekuensi tertentu. Digunakan untuk:</p><ul><li>isolasi fitur khusus,</li><li>analisis pola tertentu dalam citra.</li></ul><p><strong>5. Implementasi Filtering Spasial dengan Python</strong></p><p>Implementasi menggunakan OpenCV dan NumPy menunjukkan bahwa:</p><ul><li>filtering spasial relatif <strong>mudah diimplementasikan</strong>,</li><li>cocok untuk <em>real-time processing</em>,</li><li>parameter kernel sangat memengaruhi hasil.</li></ul><p>Perbandingan hasil:</p><ul><li>Average filter → blur merata</li><li>Gaussian filter → blur lebih halus dan natural</li><li>Sobel &amp; Laplacian → menonjolkan tepi</li></ul><p><strong>6. Analisis Efek Filtering Spasial</strong></p><p><strong>Efek Low-Pass Filter</strong></p><ul><li>Mengurangi noise acak</li><li>Menghaluskan citra</li><li>Mengaburkan detail halus</li><li>Cocok sebagai tahap pra-pemrosesan</li></ul><p><strong>Efek High-Pass Filter</strong></p><ul><li>Menekankan perubahan intensitas</li><li>Mendeteksi tepi dan kontur</li><li>Meningkatkan detail</li><li>Rentan meningkatkan noise</li></ul><p>Pemilihan filter harus disesuaikan dengan tujuan aplikasi.</p><p><strong>7. Filtering pada Domain Frekuensi</strong></p><p>Filtering frekuensi dilakukan dengan langkah:</p><ol><li>Transformasi citra ke domain frekuensi (DFT/FFT)</li><li>Penerapan filter pada spektrum frekuensi</li><li>Transformasi balik ke domain spasial (IDFT/IFFT)</li></ol><p>Keunggulan utama:</p><ul><li>lebih fleksibel dalam desain filter,</li><li>efektif untuk filter berukuran besar.</li></ul><p><strong>8. Transformasi Fourier</strong></p><p>Transformasi Fourier memecah citra menjadi komponen frekuensi.</p><p><strong>Pemahaman Domain Frekuensi</strong></p><ul><li>Frekuensi rendah → area homogen</li><li>Frekuensi tinggi → tepi, detail, noise</li><li>Komponen DC → rata-rata intensitas citra</li></ul><p>Spektrum frekuensi membantu memahami karakteristik citra sebelum merancang filter.</p><p><strong>9. Jenis Filter Frekuensi</strong></p><ul><li><strong>Ideal Low-Pass</strong>: cutoff tajam, bisa menimbulkan artefak (<em>ringing</em>)</li><li><strong>Butterworth Low-Pass</strong>: transisi lebih halus</li><li><strong>Gaussian Low-Pass</strong>: transisi paling halus dan stabil</li><li><strong>High-Pass Filter</strong>: kebalikan low-pass, menonjolkan detail</li></ul><p><strong>10. Perbandingan Filtering Spasial dan Frekuensi</strong></p><ul><li>Filtering spasial lebih intuitif dan sederhana</li><li>Filtering frekuensi lebih fleksibel dan kuat untuk filter kompleks</li><li>Spasial efisien untuk kernel kecil</li><li>Frekuensi lebih efisien untuk kernel besar</li></ul><p>Keduanya saling melengkapi dalam pipeline pemrosesan citra.</p><p><strong>11. Studi Kasus</strong></p><p><strong>a. Peningkatan Kualitas Citra Medis</strong></p><ul><li>Gaussian filter untuk mereduksi noise</li><li>Filtering frekuensi untuk menonjolkan struktur anatomi</li><li>Kombinasi filtering menghasilkan citra yang lebih informatif secara klinis</li></ul><p><strong>b. Deteksi Tepi untuk Segmentasi</strong></p><ul><li>Pra-pemrosesan dengan Gaussian blur</li><li>Deteksi tepi dengan Sobel atau Canny</li><li>Morfologi untuk memperbaiki hasil segmentasi</li></ul><p><strong>12. Filter Bilateral</strong></p><p>Filter bilateral adalah filter non-linear yang:</p><ul><li>menghaluskan area homogen,</li><li>tetap mempertahankan tepi tajam.</li></ul><p>Parameter:</p><ul><li><strong>d</strong>: diameter tetangga</li><li><strong>sigmaColor</strong>: sensitivitas perbedaan intensitas</li><li><strong>sigmaSpace</strong>: sensitivitas jarak spasial</li></ul><p>Filter ini sangat cocok untuk aplikasi visual yang membutuhkan hasil natural.</p>
+                </div>
+                
+                <div style="margin-top: 4rem; display: flex; justify-content: space-between;">
+                    <a href="module-2.html" style="color: var(--primary); text-decoration: none;">&larr; Previous Module</a>
+                    <a href="module-4.html" style="color: var(--primary); text-decoration: none;">Next Module &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer style="padding: 4rem 0; border-top: 1px solid var(--glass-border); text-align: center; margin-top: 4rem;">
+        <p style="color: var(--text-dim);">&copy; 2026 Advanced Computer Vision Portal.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
